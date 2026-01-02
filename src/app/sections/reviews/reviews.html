@@ -1,21 +1,19 @@
 <section id="reviews" class="reviews-section section-padding">
   <div class="container">
     
-    <div class="reviews-grid" *ngIf="reviews.length > 0; else noReviews">
+    <div class="reviews-grid" *ngIf="reviews && reviews.length > 0">
       <div class="review-card" *ngFor="let rev of reviews">
         <div class="stars">
-            <i class="fas fa-star" *ngFor="let s of [1,2,3,4,5].slice(0, rev[2])"></i>
+            <i class="fas fa-star" *ngFor="let s of [1,2,3,4,5].slice(0, +rev[2])"></i>
         </div>
-        
         <p class="review-text">"{{ rev[3] }}"</p>
-        
-        <div class="reviewer">
-          <div class="reviewer-info">
-            <h4>{{ rev[0] }}</h4>
-            <span>{{ rev[1] }}</span>
-          </div>
-        </div>
+        <h4>{{ rev[0] }}</h4>
+        <span>{{ rev[1] }}</span>
       </div>
+    </div>
+
+    <div *ngIf="!reviews || reviews.length === 0">
+      <p class="text-center">Loading reviews...</p>
     </div>
 
     <ng-template #noReviews>
