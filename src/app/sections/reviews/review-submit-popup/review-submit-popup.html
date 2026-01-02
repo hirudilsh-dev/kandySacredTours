@@ -1,11 +1,11 @@
 <p-dialog 
-    header="Header" 
     [(visible)]="visible" 
     [modal]="true" 
     [draggable]="false" 
     [resizable]="false"
     styleClass="review-dialog"
-    [closable]="true">
+    [closable]="true"
+    [dismissableMask]="true">
     
     <ng-template pTemplate="header">
         <div class="header-content">
@@ -14,7 +14,7 @@
         </div>
     </ng-template>
 
-    <div class="review-form">
+    <div class="review-form pt-4">
         <div class="field">
             <label for="name">Your Name</label>
             <input id="name" type="text" pInputText placeholder="Enter your name" class="w-full" />
@@ -41,8 +41,8 @@
             <textarea id="review" rows="4" pInputTextarea placeholder="How was your tour?" class="w-full"></textarea>
         </div>
 
-        <button class="submit-btn">
-            Submit via WhatsApp
+        <button class="submit-btn mt-2">
+            <i class="fab fa-whatsapp mr-2"></i> Submit via WhatsApp
         </button>
     </div>
 </p-dialog>
