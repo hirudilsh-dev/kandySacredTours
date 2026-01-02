@@ -1,53 +1,26 @@
 <section id="reviews" class="reviews-section section-padding">
   <div class="container">
-    <div class="section-header">
-      <h2 class="title">What Our Guests Say</h2>
-      <div class="divider"></div>
-      <p class="subtitle">Real stories from travelers who explored Kandy with me.</p>
-    </div>
-
-    <div class="reviews-grid">
-      <div class="review-card">
+    
+    <div class="reviews-grid" *ngIf="reviews.length > 0; else noReviews">
+      <div class="review-card" *ngFor="let rev of reviews">
         <div class="stars">
-          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <i class="fas fa-star" *ngFor="let s of [1,2,3,4,5].slice(0, rev[2])"></i>
         </div>
-        <p class="review-text">"The most insightful tour of Dalada Maligawa! Our guide's knowledge about the rituals was amazing. Highly recommended for German speakers too."</p>
+        
+        <p class="review-text">"{{ rev[3] }}"</p>
+        
         <div class="reviewer">
-          <img src="images/user1.jpg" alt="Guest" class="reviewer-img">
           <div class="reviewer-info">
-            <h4>Hans Mueller</h4>
-            <span>Germany</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="stars">
-          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-        </div>
-        <p class="review-text">"Kandy felt so different with a local specialist. We didn't just see the temple; we understood the soul of Sri Lankan culture."</p>
-        <div class="reviewer">
-          <img src="images/user2.jpg" alt="Guest" class="reviewer-img">
-          <div class="reviewer-info">
-            <h4>Sarah Jenkins</h4>
-            <span>United Kingdom</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="stars">
-          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-        </div>
-        <p class="review-text">"Professional, punctual, and very friendly. The Peradeniya Botanical Garden tour was the highlight of our trip to Sri Lanka!"</p>
-        <div class="reviewer">
-          <img src="images/user3.jpg" alt="Guest" class="reviewer-img">
-          <div class="reviewer-info">
-            <h4>David Wilson</h4>
-            <span>Australia</span>
+            <h4>{{ rev[0] }}</h4>
+            <span>{{ rev[1] }}</span>
           </div>
         </div>
       </div>
     </div>
+
+    <ng-template #noReviews>
+      <p class="text-center">Loading reviews or no reviews found...</p>
+    </ng-template>
+
   </div>
 </section>
