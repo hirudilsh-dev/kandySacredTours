@@ -1,1 +1,49 @@
-<p>contact works!</p>
+<section id="contact" class="contact-section section-padding">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Start Your Journey</h2>
+        <div class="divider"></div>
+        <p>I am here to help you plan the perfect Kandy experience. Send me a message, and I'll get back to you shortly.</p>
+        
+        <div class="info-items">
+          <div class="item">
+            <i class="fab fa-whatsapp"></i>
+            <span>+94 77 056 6418</span>
+          </div>
+          <div class="item">
+            <i class="fas fa-envelope"></i>
+            <span>sasanthav@gmail.com</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-container">
+        <form (submit)="sendWhatsApp($event)" class="contact-form">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" name="name" [(ngModel)]="formData.name" placeholder="Enter your name" required>
+          </div>
+
+          <div class="form-group">
+            <label>Select Tour</label>
+            <select name="tour" [(ngModel)]="formData.tour">
+              <option value="Temple of the Tooth Tour">Temple of the Tooth Tour</option>
+              <option value="Botanical Garden Tour">Botanical Garden Tour</option>
+              <option value="Full City Tour">Full Kandy City Tour</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Message (Optional)</label>
+            <textarea name="message" [(ngModel)]="formData.message" rows="4" placeholder="Any special requests?"></textarea>
+          </div>
+
+          <button type="submit" class="btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> Send to WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

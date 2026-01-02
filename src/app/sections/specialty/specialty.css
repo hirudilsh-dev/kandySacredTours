@@ -1,0 +1,106 @@
+.specialty-section {
+  background-color: #ffffff;
+  padding: 80px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.divider {
+  width: 80px;
+  height: 4px;
+  background: #d4af37;
+  margin: 0 auto 20px;
+}
+
+.subtitle {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+.specialty-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.specialty-image {
+  position: relative;
+}
+
+.specialty-image img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.experience-badge {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  background: #d4af37;
+  color: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.experience-badge .years {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.feature-item {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.icon-box {
+  background: #f8fafc;
+  color: #d4af37;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.text-box h3 {
+  font-size: 1.3rem;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.text-box p {
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 968px) {
+  .specialty-grid {
+    grid-template-columns: 1fr;
+  }
+  .specialty-image {
+    order: 2;
+    margin-top: 40px;
+  }
+}

@@ -1,0 +1,80 @@
+.footer {
+  background: #0f172a;
+  color: white;
+  padding: 60px 0 20px;
+}
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+.footer-brand p {
+  color: #94a3b8;
+  margin-top: 15px;
+  max-width: 300px;
+}
+.footer-links ul { list-style: none; padding: 0; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a { color: #94a3b8; text-decoration: none; transition: 0.3s; }
+.footer-links a:hover { color: #d4af37; }
+
+.social-icons { display: flex; gap: 15px; margin-top: 15px; }
+.social-icons a {
+  color: white;
+  background: rgba(255,255,255,0.1);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.social-icons a:hover { background: #d4af37; transform: translateY(-3px); }
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 20px;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .footer-content { grid-template-columns: 1fr; }
+}
+
+.bottom-flex {
+  display: flex;
+  justify-content: space-between; /* එක පැත්තක Copyright එකත් අනෙක් පැත්තේ Developer නමත් */
+  align-items: center;
+  flex-wrap: wrap; /* Mobile වලදී පේළි දෙකකට ඒමට */
+  gap: 10px;
+}
+
+.developer-credit {
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.developer-credit a {
+  color: #d4af37; /* නම Gold color එකෙන් කැපී පෙනෙන්න */
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px dashed transparent;
+  transition: 0.3s ease;
+}
+
+.developer-credit a:hover {
+  border-bottom-color: #d4af37;
+  opacity: 0.8;
+}
+
+/* Mobile වලදී මැදට ගැනීමට */
+@media (max-width: 600px) {
+  .bottom-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+}
