@@ -1,1 +1,48 @@
-<p>review-submit-popup works!</p>
+<p-dialog 
+    header="Header" 
+    [(visible)]="visible" 
+    [modal]="true" 
+    [draggable]="false" 
+    [resizable]="false"
+    styleClass="review-dialog"
+    [closable]="true">
+    
+    <ng-template pTemplate="header">
+        <div class="header-content">
+            <h2 class="m-0">Share Your Experience</h2>
+            <p class="subtitle">Your feedback helps other travelers explore Kandy.</p>
+        </div>
+    </ng-template>
+
+    <div class="review-form">
+        <div class="field">
+            <label for="name">Your Name</label>
+            <input id="name" type="text" pInputText placeholder="Enter your name" class="w-full" />
+        </div>
+
+        <div class="field">
+            <label for="location">Country / City</label>
+            <input id="location" type="text" pInputText placeholder="e.g. Berlin, Germany" class="w-full" />
+        </div>
+
+        <div class="field">
+            <label for="rating">Rating</label>
+            <select id="rating" class="custom-select w-full">
+                <option value="5">5 Stars - Excellent</option>
+                <option value="4">4 Stars - Very Good</option>
+                <option value="3">3 Stars - Good</option>
+                <option value="2">2 Stars - Average</option>
+                <option value="1">1 Star - Poor</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label for="review">Your Review</label>
+            <textarea id="review" rows="4" pInputTextarea placeholder="How was your tour?" class="w-full"></textarea>
+        </div>
+
+        <button class="submit-btn">
+            Submit via WhatsApp
+        </button>
+    </div>
+</p-dialog>

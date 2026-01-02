@@ -20,5 +20,19 @@
       <p class="text-center">Loading reviews or no reviews found...</p>
     </ng-template>
 
+    <!-- Write a Review -->
+    <button (click)="openPopup()" class="border-2 border-gold text-slate-800 hover:bg-gold hover:text-white font-bold px-8 py-3 rounded-full transition duration-300">
+        <i class="fas fa-pen-nib mr-2"></i>Write a Review
+    </button>
+
+    <app-review-submit-popup #reviewModal></app-review-submit-popup>
+            
+    <!-- google, award icons -->
+    <div class="mt-12 flex justify-center items-center space-x-8 opacity-60 grayscale hover:grayscale-0 transition duration-500">
+      <i class="fab fa-tripadvisor text-3xl"></i>
+      <i class="fab fa-google text-3xl"></i>
+      <i class="fas fa-award text-3xl"></i>
+    </div>
+
   </div>
 </section>

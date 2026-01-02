@@ -1,0 +1,53 @@
+::ng-deep .review-dialog {
+    width: 90vw;
+    max-width: 450px;
+    border-radius: 15px;
+}
+
+.header-content h2 {
+    font-family: 'Serif', Georgia, serif;
+    color: #1a1a1a;
+    font-size: 1.5rem;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.field {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.field label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+input, textarea, .custom-select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: #1e293b; /* Dark navy color */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #0f172a;
+}
