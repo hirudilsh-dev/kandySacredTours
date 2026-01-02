@@ -1,0 +1,51 @@
+.maintenance-box {
+  background: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 20px;
+  padding: 60px 20px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.maintenance-icon {
+  font-size: 3rem;
+  color: #d4af37;
+  margin-bottom: 20px;
+  animation: wrench 2.5s ease infinite;
+}
+
+.maintenance-content h3 {
+  color: #1e293b;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.maintenance-content p {
+  color: #64748b;
+  max-width: 500px;
+  margin: 0 auto 25px;
+}
+
+/* Loading Animation */
+.loader-dots span {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background: #d4af37;
+  border-radius: 50%;
+  display: inline-block;
+  animation: dots 1.4s infinite ease-in-out both;
+}
+
+.loader-dots span:nth-child(1) { animation-delay: -0.32s; }
+.loader-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes wrench {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(15deg); }
+}
+
+@keyframes dots {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1.0); }
+}

@@ -1,0 +1,83 @@
+.hero-container {
+  height: 90vh;
+  background: url('/images/temple-of-the-tooth-bg.webp') no-repeat center center/cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* පින්තූරය උඩින් අඳුරු පාටක් (Overlay) දැමීම අකුරු හොඳින් පෙනීමට */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.6); /* කළු පාට 60% තද බවකින් */
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+.main-heading {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: #d4af37; /* Gold color */
+}
+
+.description {
+  font-size: 1.25rem;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  font-weight: 300;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  padding: 15px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-gold {
+  background-color: #d4af37;
+  color: #1e293b;
+}
+
+.btn-gold:hover {
+  background-color: #f1c40f;
+  transform: translateY(-3px);
+}
+
+.btn-outline {
+  border: 2px solid white;
+  color: white;
+}
+
+.btn-outline:hover {
+  background-color: white;
+  color: #1e293b;
+}
+
+/* Mobile වලදී පෙනුම සකස් කිරීම */
+@media (max-width: 768px) {
+  .main-heading { font-size: 2.5rem; }
+  .action-buttons { flex-direction: column; align-items: center; }
+}

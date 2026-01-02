@@ -1,0 +1,26 @@
+.navbar {
+  background: var(--slate-dark);
+  color: white;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.gold { color: #d4af37; margin-right: 10px; }
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+.btn-book {
+  background: #d4af37;
+  padding: 8px 15px;
+  border-radius: 5px;
+  color: #1e293b !important;
+  font-weight: bold;
+}
