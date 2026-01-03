@@ -19,15 +19,22 @@
       </div>
 
       <div class="contact-form-container">
-        <form (submit)="sendWhatsApp($event)" class="contact-form">
+        <form #contactForm="ngForm" (submit)="sendWhatsApp(contactForm)" class="contact-form">
           <div class="form-group">
             <label>Full Name</label>
-            <input type="text" name="name" [(ngModel)]="formData.name" placeholder="Enter your name" required>
+            <input 
+              type="text" 
+              name="name" 
+              [(ngModel)]="formData.name" 
+              #name="ngModel"
+              placeholder="Enter your name" 
+              required>
+            <small *ngIf="name.invalid && name.touched" style="color: red;">Name is required</small>
           </div>
 
           <div class="form-group">
             <label>Select Tour</label>
-            <select name="tour" [(ngModel)]="formData.tour">
+            <select name="tour" [(ngModel)]="formData.tour" required>
               <option value="Temple of the Tooth Tour">Temple of the Tooth Tour</option>
               <option value="Botanical Garden Tour">Botanical Garden Tour</option>
               <option value="Full City Tour">Full Kandy City Tour</option>
@@ -39,9 +46,10 @@
             <textarea name="message" [(ngModel)]="formData.message" rows="4" placeholder="Any special requests?"></textarea>
           </div>
 
-          <button type="submit" class="btn-whatsapp">
+          <button type="submit" [disabled]="contactForm.invalid" class="btn-whatsapp">
             <i class="fab fa-whatsapp"></i> Send to WhatsApp
           </button>
+          
         </form>
       </div>
     </div>

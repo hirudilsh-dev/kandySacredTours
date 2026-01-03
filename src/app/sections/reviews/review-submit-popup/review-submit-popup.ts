@@ -38,6 +38,10 @@ export class ReviewSubmitPopup {
   }
 
   onSubmit() {
+    // නම හෝ රිවිව් එක හිස් නම් ඉදිරියට නොයන්න
+    if (!this.reviewData.name.trim() || !this.reviewData.review.trim()) {
+        return;
+    }
     this.submitToSheet();
   }
 
