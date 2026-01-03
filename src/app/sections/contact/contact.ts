@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -17,18 +17,27 @@ export class ContactComponent {
     message: ''
   };
 
-  sendWhatsApp(event: Event) {
-    event.preventDefault(); // පිටුව refresh වීම නතර කරයි
-    
-    const phoneNumber = "94770566418"; // ඔබේ WhatsApp අංකය මෙතනට දාන්න
-    
-    // පණිවිඩය සකස් කිරීම
-    const message = `*New Inquiry - Kandy Sacred Tours*%0A%0A` + 
-                    `*Name:* ${this.formData.name}%0A` +
-                    `*Interested Tour:* ${this.formData.tour}%0A` +
-                    `*Message:* ${this.formData.message}`;
+  sendWhatsApp(form: NgForm) {
+    // 1. Check if the form is valid
+    if (form.invalid) {
+      alert("Please fill in all required fields.");
+      return;
+    }
 
-    // WhatsApp window එක open කිරීම
+    // 2. Extra check for empty spaces in the name
+    if (!this.formData.name.trim()) {
+      alert("Please enter a valid name.");
+      return;
+    }
+
+    const phoneNumber = "94770566418";
+    
+    // Encoding the message safely
+    const message = `*New Inquiry - Kandy Sacred Tours*%0A%0A` + 
+                    `*Name:* ${encodeURIComponent(this.formData.name)}%0A` +
+                    `*Interested Tour:* ${encodeURIComponent(this.formData.tour)}%0A` +
+                    `*Message:* ${encodeURIComponent(this.formData.message || 'No additional message')}`;
+
     const url = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(url, '_blank');
   }

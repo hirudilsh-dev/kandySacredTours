@@ -20,3 +20,16 @@
 .btn-whatsapp:hover { background: #128c7e; }
 
 @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+
+/* Disable වූ විට button එකේ පෙනුම */
+.btn-whatsapp:disabled {
+  background-color: #a0a0a0; /* අළු පැහැය */
+  cursor: not-allowed;        /* mouse එක ගෙනියන විට 'තහනම්' ලකුණ පෙන්වයි */
+  opacity: 0.6;               /* තරමක් විනිවිද පෙනෙන ස්වභාවය */
+  transform: none;            /* hover effects තිබේ නම් ඒවා ඉවත් කිරීමට */
+}
+
+/* Button එක disable වී ඇති විට hover effect එක වැඩ කිරීම නැවැත්වීමට */
+.btn-whatsapp:disabled:hover {
+  background-color: #a0a0a0;
+}

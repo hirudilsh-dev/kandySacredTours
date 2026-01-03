@@ -1,15 +1,23 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { ReviewSubmitPopup } from "./review-submit-popup/review-submit-popup";
 
 @Component({
   selector: 'app-reviews',
   standalone: true,
-  imports: [CommonModule], // ngFor wada karanna meka aniwaren oni
+  imports: [
+    CommonModule,
+    ReviewSubmitPopup
+  ],
   templateUrl: './reviews.html',
   styleUrl: './reviews.css',
 })
 export class Reviews implements OnInit {
+
+  // Child component එකට reference එකක් මෙතනින් ගන්නවා
+  @ViewChild('reviewModal') reviewModal!: ReviewSubmitPopup;
+  
   reviews: any[] = [];
 
   //Google Web App URL eka methanata danna
@@ -20,6 +28,11 @@ export class Reviews implements OnInit {
 
   ngOnInit(): void {
     this.fetchReviews();
+  }
+
+  // Button එක click කළාම වැඩ කරන function එක
+  openPopup() {
+    this.reviewModal.showDialog();
   }
 
   fetchReviews() {

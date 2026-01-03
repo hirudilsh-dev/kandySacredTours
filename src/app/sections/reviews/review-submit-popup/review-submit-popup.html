@@ -1,1 +1,47 @@
-<p>review-submit-popup works!</p>
+<p-dialog 
+    [(visible)]="visible" 
+    [modal]="true" 
+    [draggable]="false" 
+    [resizable]="false"
+    styleClass="review-dialog"
+    [closable]="true"
+    [dismissableMask]="true">
+    
+    <ng-template pTemplate="header">
+        <div class="header-content">
+            <h2 class="m-0">Share Your Experience</h2>
+            <p class="subtitle">Your feedback helps other travelers explore Kandy.</p>
+        </div>
+    </ng-template>
+
+    <form #reviewForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="review-form pt-4">
+            <div class="field">
+                <label for="name">Your Name</label>
+                <input name="name" [(ngModel)]="reviewData.name" id="name" type="text" pInputText class="w-full" required #name="ngModel" />
+            </div>
+
+            <div class="field">
+                <label for="location">Country / City</label>
+                <input name="location" [(ngModel)]="reviewData.location" id="location" type="text" pInputText class="w-full" />
+            </div>
+
+            <div class="field">
+                <label for="rating">Rating</label>
+                <select name="rating" [(ngModel)]="reviewData.rating" id="rating" class="custom-select w-full" required>
+                    <option value="5">5 Stars - Excellent</option>
+                    <option value="4">4 Stars - Very Good</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="review">Your Review</label>
+                <textarea name="review" [(ngModel)]="reviewData.review" id="review" rows="4" pInputTextarea class="w-full" required #review="ngModel"></textarea>
+            </div>
+
+            <button type="submit" [disabled]="reviewForm.invalid || !reviewData.name.trim() || !reviewData.review.trim()" class="submit-btn mt-2">
+                <i class="fab fa-whatsapp mr-2"></i> Submit
+            </button>
+        </div>
+    </form>
+</p-dialog>

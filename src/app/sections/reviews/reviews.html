@@ -1,24 +1,49 @@
 <section id="reviews" class="reviews-section section-padding">
-  <div class="container">
+  <div class="container mx-auto px-4">
     
-    <div class="reviews-grid" *ngIf="reviews && reviews.length > 0">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold text-slate-800">Guest Reviews</h2>
+      <p class="text-slate-500">What our wonderful guests say about their journey</p>
+    </div>
+
+    <div class="reviews-grid" *ngIf="reviews && reviews.length > 0; else noReviews">
       <div class="review-card" *ngFor="let rev of reviews">
         <div class="stars">
-            <i class="fas fa-star" *ngFor="let s of [1,2,3,4,5].slice(0, +rev[2])"></i>
+          <i class="fas fa-star" *ngFor="let s of [1,2,3,4,5].slice(0, +rev[2])"></i>
         </div>
         <p class="review-text">"{{ rev[3] }}"</p>
-        <h4>{{ rev[0] }}</h4>
-        <span>{{ rev[1] }}</span>
+        
+        <div class="reviewer">
+          <div class="reviewer-img">
+            <i class="fas fa-user text-slate-400"></i>
+          </div>
+          <div class="reviewer-info">
+            <h4>{{ rev[0] }}</h4>
+            <span>{{ rev[1] }}</span>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div *ngIf="!reviews || reviews.length === 0">
-      <p class="text-center">Loading reviews...</p>
+    <ng-template #noReviews>
+      <div class="text-center py-10">
+        <p class="text-slate-500">Loading reviews or no reviews found...</p>
+      </div>
+    </ng-template>
+
+    <div class="flex justify-center mt-10">
+      <button (click)="openPopup()" class="border-2 border-gold text-slate-800 hover:bg-gold hover:text-white font-bold px-8 py-3 rounded-full transition duration-300 shadow-md">
+          <i class="fas fa-pen-nib mr-2"></i>Write a Review
+      </button>
     </div>
 
-    <ng-template #noReviews>
-      <p class="text-center">Loading reviews or no reviews found...</p>
-    </ng-template>
+    <div class="mt-16 flex justify-center items-center space-x-12 opacity-50 grayscale hover:grayscale-0 transition duration-500">
+      <i class="fab fa-tripadvisor text-4xl"></i>
+      <i class="fab fa-google text-4xl"></i>
+      <i class="fas fa-award text-4xl"></i>
+    </div>
 
   </div>
 </section>
+
+<app-review-submit-popup #reviewModal></app-review-submit-popup>
