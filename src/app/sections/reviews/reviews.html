@@ -6,22 +6,34 @@
       <p class="text-slate-500">What our wonderful guests say about their journey</p>
     </div>
 
-    <div class="reviews-grid" *ngIf="reviews && reviews.length > 0; else noReviews">
-      <div class="review-card" *ngFor="let rev of reviews">
-        <div class="stars">
-          <i class="fas fa-star" *ngFor="let s of [1,2,3,4,5].slice(0, +rev[2])"></i>
-        </div>
-        <p class="review-text">"{{ rev[3] }}"</p>
+    <div class="slider-wrapper" *ngIf="reviews && reviews.length > 0; else noReviews">
+      <div class="reviews-slider" [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
         
-        <div class="reviewer">
-          <div class="reviewer-img">
-            <i class="fas fa-user text-slate-400"></i>
-          </div>
-          <div class="reviewer-info">
-            <h4>{{ rev[0] }}</h4>
-            <span>{{ rev[1] }}</span>
+        <div class="slide-group" *ngFor="let group of groupedReviews">
+          <div class="review-card" *ngFor="let rev of group">
+            <div class="stars">
+              <i class="fas fa-star" *ngFor="let s of [1,2,3,4,5].slice(0, +rev[2])"></i>
+            </div>
+            <p class="review-text">"{{ rev[3] }}"</p>
+            
+            <div class="reviewer">
+              <div class="reviewer-img">
+                <i class="fas fa-user text-slate-400"></i>
+              </div>
+              <div class="reviewer-info">
+                <h4>{{ rev[0] }}</h4>
+                <span>{{ rev[1] }}</span>
+              </div>
+            </div>
           </div>
         </div>
+
+      </div>
+
+      <div class="slider-dots">
+        <span *ngFor="let dot of groupedReviews; let i = index" 
+              [class.active]="i === currentSlide"
+              (click)="goToSlide(i)"></span>
       </div>
     </div>
 
