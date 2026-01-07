@@ -4,7 +4,27 @@
   <app-hero></app-hero>
   <app-specialty></app-specialty>
   <app-tours></app-tours>
-  <app-gallery></app-gallery>
+
+  <section class="gallery-preview-section section-padding">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 class="title">Kandy Diaries</h2>
+        <p class="subtitle">Experience the beauty of the hill capital through our lens</p>
+        <div class="divider"></div>
+      </div>
+
+      <app-gallery [isExpanded]="isExpanded"></app-gallery>
+
+      @if (!isExpanded) {
+        <div class="text-center mt-5">
+          <button class="btn-main-gallery" (click)="expandGallery()">
+            View All Images <i class="fas fa-th"></i>
+          </button>
+        </div>
+      }
+    </div>
+  </section>
+
   <app-reviews></app-reviews>
   <app-contact></app-contact>
 </main>
