@@ -1,8 +1,13 @@
 [[plugins]]
   package = "@netlify/plugin-sitemap"
 
-[plugins.inputs]
-  buildDir = "dist/kandy-sacred-tours"
+  [plugins.inputs]
+    buildDir = "dist/kandy-sacred-tours/browser"
+
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
+  status = 200
 
 [[redirects]]
   from = "/*"
