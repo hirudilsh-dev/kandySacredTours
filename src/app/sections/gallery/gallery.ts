@@ -8,18 +8,22 @@ import { Component, Input } from '@angular/core';
 })
 export class Gallery {
 
-@Input() isExpanded: boolean = false; // Main page eken thama meka control wenne
+  @Input() isExpanded: boolean = false; // Main page eken thama meka control wenne
   
-  allImages: string[] = [];
+  allImages: string[] = [
+    '/gallery/img-1.jpeg',
+    '/gallery/img-2.jpeg',
+    '/gallery/img-3.jpeg',
+    '/gallery/img-4.jpeg',
+    '/gallery/img-5.jpeg',
+    '/gallery/img-6.jpeg',
+    '/gallery/img-7.jpeg',
+    '/gallery/img-8.jpeg'
+  ];
+
   selectedImage: string | null = null;
 
-  ngOnInit() {
-    // Assets/gallery folder eke img-1.jpg idan img-100.jpg wenakan thiyenna oni
-    const totalImages = 100; 
-    for (let i = 1; i <= totalImages; i++) {
-      this.allImages.push(`/gallery/img-${i}.jpeg`);
-    }
-  }
+  ngOnInit() { }
 
   // Getter function ekak use karala preview images select karagamu
   get displayImages() {
