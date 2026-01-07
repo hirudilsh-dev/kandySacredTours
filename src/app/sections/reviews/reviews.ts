@@ -40,7 +40,7 @@ export class Reviews implements OnInit {
     this.http.get<any[]>(this.scriptUrl).subscribe({
       next: (data) => {
         if (data && Array.isArray(data)) {
-          this.reviews = [...data];
+          this.reviews = [...data].reverse();
           console.log('Data received:', this.reviews);
           this.groupReviews();
           this.cdr.detectChanges(); 

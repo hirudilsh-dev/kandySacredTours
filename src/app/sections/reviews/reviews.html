@@ -1,28 +1,45 @@
-<section id="reviews" class="reviews-section section-padding">
+<section id="reviews" class="reviews-section section-padding bg-slate-50">
   <div class="container mx-auto px-4">
     
-    <div class="text-center mb-10">
-      <h2 class="text-3xl font-bold text-slate-800">Guest Reviews</h2>
-      <p class="text-slate-500">What our wonderful guests say about their journey</p>
+    <div class="text-center mb-16">
+      <span class="text-gold font-semibold tracking-widest uppercase text-sm">Testimonials</span>
+      <h2 class="text-4xl font-bold text-slate-800 mt-2">Guest Reviews</h2>
+      <div class="w-24 h-1 bg-gold mx-auto mt-4 rounded-full"></div>
+      <p class="text-slate-500 mt-4 max-w-2xl mx-auto">What our wonderful guests say about their journey with us. We take pride in delivering unforgettable experiences.</p>
     </div>
 
     <div class="slider-wrapper" *ngIf="reviews && reviews.length > 0; else noReviews">
       <div class="reviews-slider" [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
         
         <div class="slide-group" *ngFor="let group of groupedReviews">
-          <div class="review-card" *ngFor="let rev of group">
-            <div class="stars">
-              <i class="fas fa-star" *ngFor="let s of [1,2,3,4,5].slice(0, +rev[2])"></i>
-            </div>
-            <p class="review-text">"{{ rev[3] }}"</p>
-            
-            <div class="reviewer">
-              <div class="reviewer-img">
-                <i class="fas fa-user text-slate-400"></i>
+          <div class="review-card-container" *ngFor="let rev of group">
+            <div class="review-card">
+              <div class="flex justify-between items-start mb-4">
+                <i class="fas fa-quote-left text-gold opacity-30 text-3xl"></i>
+                <div class="stars flex space-x-1">
+                  <i class="fas fa-star text-gold text-sm" *ngFor="let s of [1,2,3,4,5].slice(0, +rev[2])"></i>
+                </div>
               </div>
-              <div class="reviewer-info">
-                <h4>{{ rev[0] }}</h4>
-                <span>{{ rev[1] }}</span>
+
+              <div class="review-content mb-6">
+                <p class="review-text text-slate-600 italic">"{{ rev[3] }}"</p>
+              </div>
+              
+              <div class="reviewer-footer pt-6 border-t border-slate-100 flex items-center justify-between">
+                <div class="flex items-center">
+                  <div class="reviewer-avatar">
+                    <span class="text-gold font-bold">{{ rev[0].charAt(0) }}</span>
+                  </div>
+                  <div class="reviewer-details">
+                    <h4 class="text-slate-800 font-bold text-sm">{{ rev[0] }}</h4>
+                    <p class="text-slate-400 text-xs flex items-center">
+                      <i class="fas fa-map-marker-alt mr-1"></i> {{ rev[1] }}
+                    </p>
+                  </div>
+                </div>
+                <div class="review-date text-slate-400 text-[11px] uppercase tracking-tighter">
+                  {{ rev[4] }}
+                </div>
               </div>
             </div>
           </div>
@@ -30,7 +47,7 @@
 
       </div>
 
-      <div class="slider-dots">
+      <div class="slider-dots mt-8">
         <span *ngFor="let dot of groupedReviews; let i = index" 
               [class.active]="i === currentSlide"
               (click)="goToSlide(i)"></span>
@@ -38,23 +55,20 @@
     </div>
 
     <ng-template #noReviews>
-      <div class="text-center py-10">
-        <p class="text-slate-500">Loading reviews or no reviews found...</p>
+      <div class="text-center py-20 bg-white rounded-2xl shadow-sm border border-slate-100">
+        <div class="animate-pulse flex flex-col items-center">
+          <div class="h-12 w-12 bg-slate-200 rounded-full mb-4"></div>
+          <p class="text-slate-400">Fetching latest stories...</p>
+        </div>
       </div>
     </ng-template>
 
-    <div class="flex justify-center mt-10">
-      <button (click)="openPopup()" class="border-2 border-gold text-slate-800 hover:bg-gold hover:text-white font-bold px-8 py-3 rounded-full transition duration-300 shadow-md">
-          <i class="fas fa-pen-nib mr-2"></i>Write a Review
+    <div class="flex justify-center mt-12">
+      <button (click)="openPopup()" class="group relative overflow-hidden bg-slate-800 text-white font-bold px-10 py-4 rounded-full transition duration-300 shadow-xl hover:shadow-gold/20">
+        <span class="relative z-10"><i class="fas fa-pen-nib mr-2 text-gold"></i>Write a Review</span>
+        <div class="absolute inset-0 bg-gold translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
       </button>
     </div>
-
-    <div class="mt-16 flex justify-center items-center space-x-12 opacity-50 grayscale hover:grayscale-0 transition duration-500">
-      <i class="fab fa-tripadvisor text-4xl"></i>
-      <i class="fab fa-google text-4xl"></i>
-      <i class="fas fa-award text-4xl"></i>
-    </div>
-
   </div>
 </section>
 
