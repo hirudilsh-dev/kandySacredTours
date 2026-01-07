@@ -16,4 +16,11 @@ import { Footer } from "./components/footer/footer";
 })
 export class App {
   protected readonly title = signal('kandy-sacred-tours');
+
+  isExpanded: boolean = false;
+
+  expandGallery() {
+    this.isExpanded = true;
+  }
+  
 }

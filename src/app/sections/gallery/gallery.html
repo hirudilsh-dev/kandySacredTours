@@ -1,4 +1,4 @@
-<section id="gallery" class="gallery-section section-padding">
+<!-- <section id="gallery" class="gallery-section section-padding">
   <div class="container">
     <div class="section-header">
       <h2 class="title">Capturing Sacred Moments</h2>
@@ -17,4 +17,24 @@
     </div>
     
   </div>
-</section>
+</section> -->
+
+<div class="gallery-wrapper">
+  <div class="gallery-grid" [class.expanded]="isExpanded">
+    @for (img of displayImages; track $index) {
+      <div class="gallery-item animate-pop-in" (click)="openLightbox(img)">
+        <img [src]="img" alt="Kandy Gallery" loading="lazy">
+        <div class="item-overlay">
+          <i class="fas fa-expand"></i>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+@if (selectedImage) {
+  <div class="lightbox-modal" (click)="closeLightbox()">
+    <button class="close-btn">&times;</button>
+    <img [src]="selectedImage" class="full-img">
+  </div>
+}
